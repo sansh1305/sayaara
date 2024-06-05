@@ -1,4 +1,3 @@
-// pages/index.tsx
 import React from 'react';
 import { GetStaticProps } from 'next';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -58,7 +57,6 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-
 type Props = {
   cars: CarProps[];
 };
@@ -104,6 +102,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
   return (
     <Layout>
       <button onClick={() => signIn('google')}>Sign in with Google</button>
+      <button onClick={() => signIn('facebook')}>Sign in with Facebook</button>
     </Layout>
   );
 };
