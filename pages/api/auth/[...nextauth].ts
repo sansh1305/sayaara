@@ -13,7 +13,7 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt',
   },
-  adapter: PrismaAdapter(prisma),
+//   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
 };
 
