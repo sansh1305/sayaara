@@ -2,7 +2,7 @@ import React from "react";
 import Router from "next/router";
 import ReactMarkdown from "react-markdown";
 
-export type PostProps = {
+export type CarProps = {
   id: string;
   title: string;
   author: {
@@ -13,7 +13,7 @@ export type PostProps = {
   published: boolean;
 };
 
-const Post: React.FC<{ post: PostProps }> = ({ post }) => {
+const Post: React.FC<{ post: CarProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
     <div onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
