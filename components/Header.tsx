@@ -5,6 +5,22 @@ import { Button } from "../@/components/ui/button";
 import Link from "next/link";
 import Image from 'next/image';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../@/components/ui/dropdown-menu"
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../@/components/ui/tooltip"
+
 export default function Header() {
   const { data: session, status } = useSession();
 
@@ -43,11 +59,25 @@ export default function Header() {
                     height={40}
                     className="rounded-full"
                   />
+
+
                 )}
                 <span>{session.user?.name}</span>
                 <Button variant="outline" size="lg" className="rounded-full hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
                   Sign Out
                 </Button>
+                {/* <DropdownMenu>
+                  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                    <DropdownMenuItem>Billing</DropdownMenuItem>
+                    <DropdownMenuItem>Team</DropdownMenuItem>
+                    <DropdownMenuItem>Subscription</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu> */}
+
               </div>
             ) : (
               <Button variant="outline" size="lg" className="rounded-full hover:bg-blue-500 hover:text-white duration-200 transition-colors">
@@ -92,16 +122,32 @@ export default function Header() {
         </Link>
         {status === 'authenticated' ? (
           <div className="flex items-center gap-4">
-            {session.user?.image && (
-              <Image
-                src={session.user.image}
-                alt={`${session.user.name} photo`}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            )}
-            <span>{session.user?.name}</span>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Link href="/profile" className="group inline-flex h-9 w-max items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium transition-colors " prefetch={false}>
+                    <div className='rounded-full border border-black/50'>
+                      {session.user?.image && (
+                        <Image
+                          src={session.user.image}
+                          alt={`${session.user.name} photo`}
+                          width={40}
+                          height={40}
+                          className="rounded-full"
+                        />
+                      )}
+                    </div>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Profile</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+
+
+            {/* <span>{session.user?.name}</span> */}
             <Button variant="outline" size="lg" className="rounded-full hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
               Sign Out
             </Button>
