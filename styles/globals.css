@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: black;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.hero {
+  background-image: url("/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
