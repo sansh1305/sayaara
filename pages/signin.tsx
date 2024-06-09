@@ -4,6 +4,7 @@ import prisma from '../lib/prisma';
 import { CarProps } from '../types';
 import CarsPage from '../components/Signin';
 
+
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const cars = await prisma.car.findMany({
