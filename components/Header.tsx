@@ -5,11 +5,14 @@ import { Button } from "../@/components/ui/button";
 import Link from "next/link";
 import Image from 'next/image';
 
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../@/components/ui/dropdown-menu"
@@ -21,12 +24,15 @@ import {
   TooltipTrigger,
 } from "../@/components/ui/tooltip"
 
+type Checked = DropdownMenuCheckboxItemProps["checked"]
+
 export default function Header() {
   const { data: session, status } = useSession();
+  const [position, setPosition] = React.useState("bottom")
 
   return (
-    <header className="flex uppercase md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
-      <div className='flex h-16 rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 '>
+    <header className="z-50  flex uppercase md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
+      <div className='flex h-16 backdrop-blur-lg rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 '>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="lg:hidden rounded-xl text-white hover:outline-white outline-white border-white ">
@@ -40,7 +46,7 @@ export default function Header() {
                 <Image src="/logo.png" alt="logo" width={180} height={100} />
               </div>
             </Link>
-            <div className="grid gap-2 py-6 ">
+            <div className="grid gap-2 py-6 uppercase text-left justify-start">
               <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Home
               </Link>
@@ -50,6 +56,23 @@ export default function Header() {
               <Link href="/dealer-login" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Dealer Login
               </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="default" className='text-black uppercase flex gap-2 text-left text-lg font-semibold p-0'>
+                    LANGUAGE
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-30 bg-white text-lg text-black uppercase rounded-xl">
+                  <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                    <DropdownMenuRadioItem value="arabic" className='text-lg'>ARABIC</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="english" className='text-lg'>ENGLISH</DropdownMenuRadioItem>
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
               {status === 'authenticated' ? (
                 <div className="flex items-start gap-4 flex-col ">
                   <Link href="/profile" className="group inline-flex h-9 w-max items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors " prefetch={false}>
@@ -122,6 +145,24 @@ export default function Header() {
           >
             Dealer Login
           </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="default" className='text-white uppercase flex gap-2'>
+                LANGUAGE
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-30 text-white uppercase rounded-xl">
+              <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                <DropdownMenuRadioItem value="arabic">ARABIC</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="english">ENGLISH</DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {status === 'authenticated' ? (
             <div className="flex items-center gap-4">
               <TooltipProvider>
