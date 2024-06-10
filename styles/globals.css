@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
     background-color: black;
     box-sizing: border-box;
@@ -13,6 +17,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  /* height: 100vh; */
   background-attachment: fixed;
+}
+
+@media screen and (max-width: 768px){
+  .hero {
+    background-size: 120% 100%; 
+  }
 }
