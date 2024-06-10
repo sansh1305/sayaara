@@ -2,14 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: PlayfairDisplay;
+  src: url(/fonts/playfair-display/PlayfairDisplay-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: LekyCalgria;
+  src: url('/fonts/leky-calgria/Leky Calgria.otf');
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 body {
-    background-color: black;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  background-color: black;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .hero {
@@ -21,8 +31,69 @@ body {
   background-attachment: fixed;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .hero {
-    background-size: 120% 100%; 
+    background-size: 120% 100%;
   }
+}
+
+@keyframes scroll_2 {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(0.75em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.scroll-icon__dot {
+  display: block;
+  position: absolute;
+  left: 53%;
+  background: #fff;
+  height: 0.4em;
+  width: 0.4em;
+  top: 0.6em;
+  margin-left: -0.25em;
+  border-radius: 50%;
+  transform-origin: top center;
+  backface-visibility: hidden;
+  animation: scroll_2 2s ease-out infinite;
+}
+
+.scroll-icon {
+  display: block;
+  position: relative;
+  height: 3em;
+  width: 1.5em;
+  border: 0.1em solid #fff;
+  border-radius: 1em;
+}
+
+h2 {
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+.page-wrap {
+  display: flex;
+  height: 100vh;
+}
+
+.example {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

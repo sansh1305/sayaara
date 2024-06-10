@@ -155,7 +155,7 @@ export default function Header() {
 
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-30 text-white uppercase rounded-xl">
+            <DropdownMenuContent className="w-30 text-black bg-white/80 uppercase rounded-xl">
               <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
                 <DropdownMenuRadioItem value="arabic">ARABIC</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="english">ENGLISH</DropdownMenuRadioItem>
