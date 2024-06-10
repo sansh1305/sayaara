@@ -25,8 +25,8 @@ export default function Header() {
   const { data: session, status } = useSession();
 
   return (
-    <header className="flex md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
-      <div className='flex h-20 rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 '>
+    <header className="flex uppercase md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
+      <div className='flex h-16 rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 '>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="lg:hidden rounded-xl text-white hover:outline-white outline-white border-white ">
@@ -65,7 +65,7 @@ export default function Header() {
                       )}
                     </div>
                   </Link>
-                  <Button variant="outline" size="lg" className="rounded-full hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
+                  <Button variant="outline" size="lg" className="rounded-full hover:bg-red-500 uppercase hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
                     Sign Out
                   </Button>
                   {/* <DropdownMenu>
@@ -97,7 +97,7 @@ export default function Header() {
         </Sheet>
         <Link href="/" className="mr-6 hidden lg:flex" prefetch={false}>
           <div>
-            <Image src="/logo.png" alt="logo" width={130} height={130} />
+            <Image src="/logo.png" alt="logo" width={110} height={110} />
           </div>
         </Link>
         <nav className="ml-auto hidden lg:flex gap-6 items-center">
@@ -150,15 +150,15 @@ export default function Header() {
 
 
               {/* <span>{session.user?.name}</span> */}
-              <Button variant="outline" size="lg" className="rounded-full text-white hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
+              <Button variant="outline" size="lg" className="rounded-full uppercase text-white hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
                 Sign Out
               </Button>
             </div>
           ) : (
-            <Button variant="outline" size="lg" className="rounded-full hover:bg-blue-500 hover:text-white duration-200 transition-colors">
+            <Button variant="outline" size="lg" className="rounded-full uppercase hover:bg-blue-500 hover:text-white duration-200 transition-colors">
               <Link
                 href="/signin"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                className="group uppercase inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
                 Sign Up
