@@ -258,31 +258,31 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
           </div>
 
           {/* Applied Filters */}
-          <div className='p-4 bg-white text-black shadow-2xl rounded-2xl mt-4'>
+          <div className='p-4 text-xs bg-white text-black shadow-2xl rounded-2xl mt-4'>
             <div className="flex flex-wrap gap-2">
               {selectedCity && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedCity}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedCity}</span>
               )}
               {selectedMake && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedMake}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedMake}</span>
               )}
               {selectedType && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedType}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedType}</span>
               )}
               {selectedRegionalSpec && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedRegionalSpec}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedRegionalSpec}</span>
               )}
               {selectedSeatingCapacity && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedSeatingCapacity} Seats</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedSeatingCapacity} Seats</span>
               )}
               {selectedAccidentHistory !== null && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedAccidentHistory ? 'Accident History' : 'No Accident History'}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedAccidentHistory ? 'Accident History' : 'No Accident History'}</span>
               )}
               {selectedServiceHistory !== null && (
-                <span className="px-2 py-1 bg-gray-200 rounded">{selectedServiceHistory ? 'Service History' : 'No Service History'}</span>
+                <span className="p-2 bg-gray-200 rounded-full">{selectedServiceHistory ? 'Service History' : 'No Service History'}</span>
               )}
               {priceRange && (
-                <span className="px-2 py-1 bg-gray-200 rounded">Price: {priceRange[0]} - {priceRange[1]}</span>
+                <span className="p-2 bg-gray-200 rounded-full">Price: {priceRange[0]} - {priceRange[1]}</span>
               )}
               <button
                 className="px-4 text-xs py-2 text-gray-500 rounded-2xl ml-2 flex items-center justify-center gap-1 hover:scale-110 transition-all duration-200"
@@ -492,31 +492,31 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
 
           <div className='p-4 w-3/4'>
             {/* Applied Filters */}
-            <div className='p-4 bg-white text-black shadow-2xl rounded-2xl mb-4'>
+            <div className='p-4 text-xs bg-white text-black shadow-2xl rounded-2xl mb-4'>
               <div className="flex flex-wrap gap-2">
                 {selectedCity && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedCity}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedCity}</span>
                 )}
                 {selectedMake && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedMake}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedMake}</span>
                 )}
                 {selectedType && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedType}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedType}</span>
                 )}
                 {selectedRegionalSpec && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedRegionalSpec}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedRegionalSpec}</span>
                 )}
                 {selectedSeatingCapacity && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedSeatingCapacity} Seats</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedSeatingCapacity} Seats</span>
                 )}
                 {selectedAccidentHistory !== null && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedAccidentHistory ? 'Accident History' : 'No Accident History'}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedAccidentHistory ? 'Accident History' : 'No Accident History'}</span>
                 )}
                 {selectedServiceHistory !== null && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">{selectedServiceHistory ? 'Service History' : 'No Service History'}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">{selectedServiceHistory ? 'Service History' : 'No Service History'}</span>
                 )}
                 {priceRange && (
-                  <span className="px-2 py-1 bg-gray-200 rounded">Price: {priceRange[0]} - {priceRange[1]}</span>
+                  <span className="p-2 bg-gray-200 rounded-full">Price: {priceRange[0]} - {priceRange[1]}</span>
                 )}
                 <button
                   className="px-4 text-xs py-2 text-gray-500 rounded-2xl ml-2 flex items-center justify-center gap-1 hover:scale-110 transition-all duration-200"
