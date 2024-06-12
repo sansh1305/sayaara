@@ -1,21 +1,17 @@
-// components/CarList.tsx
-
 import React from 'react';
 import { CarProps } from '../types';
+import CarCard from './CarCard';
 
-const CarList: React.FC<{ cars: CarProps[] }> = ({ cars }) => {
+type CarListProps = {
+  cars: CarProps[];
+};
+
+const CarList: React.FC<CarListProps> = ({ cars }) => {
   return (
-    <div>
-      <h1>Car List</h1>
-      <ul>
-        {cars.map((car) => (
-          <li key={car.id}>
-            <h2>{car.name}</h2>
-            <p>Price: ${car.price}</p>
-            {/* Add more details to display */}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-wrap justify-center">
+      {cars.map((car) => (
+        <CarCard key={car.id} car={car} />
+      ))}
     </div>
   );
 };

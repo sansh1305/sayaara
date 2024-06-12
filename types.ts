@@ -3,7 +3,7 @@
 export type CarProps = {
   id: string;
   name: string;
-  price: string; // Changed to string for serialization
+  price: string;
   type: CarType;
   year: number;
   regSpecs: RegSpecs;
@@ -77,11 +77,11 @@ export enum RegSpecs {
 }
 
 export enum City {
-  ABU_DHABI = 'ABU_DHABI',
+  ABU_DHABI = 'ABU DHABI',
   SHARJAH = 'SHARJAH',
   DUBAI = 'DUBAI',
   AJMAN = 'AJMAN',
-  AL_AIN = 'AL_AIN',
+  AL_AIN = 'AL AIN',
   RIYADH = 'RIYADH',
   JEDDAH = 'JEDDAH',
   DOHA = 'DOHA',
@@ -118,7 +118,7 @@ export enum Make {
   BORGWARD = 'BORGWARD',
   BYD = 'BYD',
   ABARTH = 'ABARTH',
-  ALFA_ROMEO = 'ALFA_ROMEO',
+  ALFA_ROMEO = 'ALFA ROMEO',
   GMC = 'GMC',
   GENESIS = 'GENESIS',
   ISUZU = 'ISUZU',

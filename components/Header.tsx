@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <header className="z-50  flex uppercase md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
-      <div className='flex h-16 backdrop-blur-lg rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 '>
+      <div className='flex h-16 backdrop-blur-lg rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 md:border-[0.2px] border-white'>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="lg:hidden rounded-xl text-white hover:outline-white outline-white border-white ">
