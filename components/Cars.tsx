@@ -11,6 +11,10 @@ import {
 } from "../@/components/ui/accordion";
 import { Slider } from 'primereact/slider';
 
+import { Label } from "../@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "../@/components/ui/radio-group"
+
+
 type Props = {
   cars: CarProps[];
 };
@@ -299,7 +303,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
 
         {/* Desktop View */}
         <div className='hidden md:flex bg-white min-h-screen'>
-          <div className='p-4 w-1/4 bg-white text-black shadow-2xl rounded-2xl'>
+          <div className='p-10 w-1/4 bg-white text-black shadow-2xl'>
             <Accordion type="single" collapsible>
               <AccordionItem value="city">
                 <AccordionTrigger>
@@ -321,6 +325,8 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                       </label>
                     </div>
                   ))}
+
+
                 </AccordionContent>
               </AccordionItem>
 
@@ -361,7 +367,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                           value={type}
                           onChange={() => setSelectedType(type)}
                           checked={selectedType === type}
-                          className="form-radio text-blue-600"
+                          className="form-radio h-4 w-4 peer"
                         />
                         <span className="ml-2">{type}</span>
                       </label>
