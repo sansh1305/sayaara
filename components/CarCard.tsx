@@ -11,7 +11,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
 
     return (
         <div className="border rounded-2xl overflow-hidden shadow-lg p-6 m-4">
-            <div className="relative pb-2/3 w-60 h-60">
+            <div className="relative pb-2/3 w-64 h-64">
                 <Image
                     src={imageUrl}
                     alt={car.make}
@@ -20,7 +20,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
                 />
             </div>
             <div className="mt-4 flex items-start justify-center flex-col gap-4">
-                <div className='flex items-center justify-between w-full text-lg font-semibold'>
+                <div className='flex items-center justify-between w-full text-2xl font-bold'>
                     <div>
                         {car.year} {car.make}
                     </div>
@@ -31,7 +31,23 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
                     </div>
                 </div>
 
-                <p className="">
+                <div className='flex items-center justify-center gap-2 text-sm text-gray-500'>
+                    <div>
+                        {car.capacity} Seater
+                    </div>
+                    {" • "}
+                    <div>
+                        {car.regSpecs}
+                    </div>
+                </div>
+
+                <div className='flex items-center justify-center gap-2 text-sm'>
+                    <div className='bg-gray-600 text-white px-2 py-1 rounded-xl'>
+                        {car.mileage} Mileage
+                    </div>
+                </div>
+
+                <p className="text-xl">
                     <strong>
                         {car.price}
                     </strong>
