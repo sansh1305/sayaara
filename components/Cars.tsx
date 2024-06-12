@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 import Layout from '../components/Layout';
 import { CarProps, City, Make, CarType, RegSpecs } from '../types';
 import CarList from './CarList';
-import { Slider } from '../@/components/ui/slider';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "../@/components/ui/accordion";
+import { Slider } from 'primereact/slider';
 
 type Props = {
   cars: CarProps[];
@@ -213,11 +213,13 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                   <h3 className="font-semibold mb-2">Price Range</h3>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <Slider
-                    min={0}
-                    max={100000}
-                    value={priceRange}
-                    onValueChange={(value: [number, number]) => setPriceRange(value)}
+                  <Slider 
+                    value={priceRange} 
+                    onChange={(e) => Array.isArray(e.value) && setPriceRange(e.value)} 
+                    className="w-14rem h-5" 
+                    range 
+                    min={0} 
+                    max={100000} 
                   />
                   <div className="flex justify-between mt-2">
                     <span>{priceRange[0]}</span>
@@ -239,17 +241,8 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
   return (
     <Layout>
       <button onClick={() => signIn('google')}>Sign in with Google</button>
-      <button onClick={() => signIn('facebook')}>Sign in with Facebook</button>
     </Layout>
   );
 };
-
-const cities = ["Abu Dhabi", "Sharjah", "Dubai", "Ajman", "Al Ain", "Riyadh", "Jeddah", "Doha"];
-const makes = ["Toyota", "Mitsubishi", "Nissan", "Hyundai", "Ford", "Honda", "Chevrolet", "Volkswagen", "Jeep", "Kia", "Jetour", "Lotus", "Land Rover", "Lincoln", "Lexus", "Maxus", "Maserati", "Mazda", "Mclaren", "Mini", "Opel", "Dodge", "Devel", "Changan", "Chrysler", "Aston Martin", "Cadillac", "Borgward", "BYD", "Abarth", "Alfa Romeo", "GMC", "Genesis", "Isuzu", "Infiniti", "Haval", "Foton", "Peugeot"];
-const types = ["SUV", "Sedan", "Hatchback", "Truck", "Coupe", "Convertible", "Luxury"];
-const regionalSpecs = ["GCC", "American", "Canadian", "European", "Chinese", "Japanese"];
-const seatingCapacities = [2, 4, 5, 6, 7];
-const accidentHistories = ["no accidents"];
-const serviceHistories = ["Yes", "No"];
 
 export default CarsPage;

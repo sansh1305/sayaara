@@ -2,11 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}', 
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './@/**/*.{ts,tsx}'
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./@/**/*.{ts,tsx}",
+    "./@/components/**/*.{ts,tsx}"
   ],
   prefix: "",
   theme: {
@@ -19,8 +20,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        playfairDisplay: ['Playfair Display'],
-        lekyCalgria: ['LekyCalgria']
+        playfairDisplay: ["Playfair Display"],
+        lekyCalgria: ["LekyCalgria"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -78,7 +79,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate")
-  ],
-}
+  plugins: [require("tailwindcss-animate")],
+};
