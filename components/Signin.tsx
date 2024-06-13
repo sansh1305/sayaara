@@ -11,6 +11,7 @@ import { Input } from "../@/components/ui/input"
 import { Label } from "../@/components/ui/label"
 
 import Cars from './Cars';
+import Header from './Header';
 
 type Props = {
     cars: CarProps[];
@@ -40,8 +41,9 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
 
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-center text-white h-screen">
+            <div className="flex flex-col items-center justify-start text-white h-screen">
                 <div className="w-full ">
+                    <Header />
                     <div className="flex items-center justify-center py-12">
                         <div className="mx-auto grid w-[350px] gap-6">
                             <div className="grid gap-2 text-center">
