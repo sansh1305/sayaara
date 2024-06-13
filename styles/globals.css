@@ -17,23 +17,23 @@
 }
 
 body {
-  background-color: black;
+  background-color: #edf6f9;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 .hero {
-  background-image: url("/bg.png");
-  background-repeat: no-repeat;
+  background-image: url('/bg.png');
   background-size: cover;
   background-position: center;
-  /* height: 100vh; */
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* height: 100vh; */
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .hero {
-    background-size: 180% 100%;
+    background-image: url('/bg-mobile.png');
   }
 }
 

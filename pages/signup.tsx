@@ -1,13 +1,9 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Layout from '../components/Layout';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import CarsPage from '../components/Cars';
 import prisma from '../lib/prisma';
 import { CarProps } from '../types';
-import Header from '../components/Header';
+import CarsPage from '../components/Signup';
+
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -65,15 +61,8 @@ type Props = {
   cars: CarProps[];
 };
 
-const Index: React.FC<Props> = ({ cars }) => {
-  return (
-    <Layout>
-      <Header />
-      <Hero />
-      {/* <About /> */}
-      <CarsPage cars={cars} />
-    </Layout>
-  );
+const SigningPage: React.FC<Props> = ({ cars }) => {
+  return <CarsPage cars={cars} />;
 };
 
-export default Index;
+export default SigningPage;

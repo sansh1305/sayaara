@@ -31,13 +31,13 @@ export default function Header() {
   const [position, setPosition] = React.useState("bottom")
 
   return (
-    <header className="z-50  flex uppercase md:items-center md:justify-center px-4 absolute md:relative right-0 md:left-0 ">
-      <div className='flex h-16 backdrop-blur-lg rounded-full md:fixed md:top-4 shrink-0 items-center md:px-8 md:bg-black/50 md:border-[0.2px] border-white'>
+    <header className="z-50 uppercase md:items-center md:justify-center p-10  ">
+      <div className='flex h-16 md:bg-transparent text-black rounded-full shrink-0 items-center md:px-8  md:border-none border-deepBlue  '>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden rounded-xl text-white hover:outline-white outline-white border-white ">
+            <Button variant="outline" size="icon" className="lg:hidden rounded-xl  hover:outline-white outline-white border-white ">
               <MenuIcon className="h-6 w-6 text-white" />
-              <span className="sr-only text-white">Toggle navigation menu</span>
+              <span className="sr-only ">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="bg-white ">
@@ -47,9 +47,9 @@ export default function Header() {
               </div>
             </Link>
             <div className="grid gap-2 py-6 uppercase text-left justify-start">
-              <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
+              {/* <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Home
-              </Link>
+              </Link> */}
               <Link href="/dealer-login" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Dealer Login
               </Link>
@@ -104,7 +104,7 @@ export default function Header() {
               ) : (
                 <Button variant="outline" size="lg" className="rounded-full hover:bg-blue-500 hover:text-white duration-200 transition-colors">
                   <Link
-                    href="/signin"
+                    href="/signup"
                     className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
@@ -117,27 +117,27 @@ export default function Header() {
         </Sheet>
         <Link href="/" className="mr-6 hidden lg:flex" prefetch={false}>
           <div>
-            <Image src="/logo.png" alt="logo" width={110} height={110} />
+            <Image src="/logo-white.png" alt="logo" width={110} height={110} />
           </div>
         </Link>
-        <nav className="ml-auto hidden lg:flex gap-6 items-center">
-          <Link
+        <nav className="ml-auto hidden lg:flex gap-6 items-center text-white">
+          {/* <Link
             href="/"
-            className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm text-gray-100 font-medium transition-colors hover:bg-white/40 hover:text-gray-200 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+            className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm  font-medium transition-colors hover:text-lightGray focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
             prefetch={false}
           >
             Home
-          </Link>
+          </Link> */}
           <Link
             href="/dealer-login"
-            className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm text-gray-100 font-medium transition-colors hover:bg-white/40 hover:text-gray-200 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+            className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm  font-medium transition-colors hover:text-lightGray focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
             prefetch={false}
           >
             Dealer Login
           </Link>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="default" className='text-white uppercase flex gap-2'>
+              <Button variant="default" className=' uppercase flex gap-2 hover:text-lightGray'>
                 LANGUAGE
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -145,7 +145,7 @@ export default function Header() {
 
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-30 text-black bg-white/80 uppercase rounded-xl">
+            <DropdownMenuContent className="w-30 text-black bg-white uppercase rounded-xl">
               <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
                 <DropdownMenuRadioItem value="arabic">ARABIC</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="english">ENGLISH</DropdownMenuRadioItem>
@@ -172,7 +172,7 @@ export default function Header() {
                       </div>
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent className='text-black border-white rounded-full text-xs bg-white'>
                     <p>Profile</p>
                   </TooltipContent>
                 </Tooltip>
@@ -181,18 +181,18 @@ export default function Header() {
 
 
               {/* <span>{session.user?.name}</span> */}
-              <Button variant="outline" size="lg" className="rounded-full uppercase text-white hover:bg-red-500 hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
+              <Button variant="outline" size="lg" className="rounded-full uppercase  hover:bg-deepBlue hover:text-white duration-200 transition-colors" onClick={() => signOut()}>
                 Sign Out
               </Button>
             </div>
           ) : (
-            <Button variant="outline" size="lg" className="rounded-full uppercase hover:bg-blue-500 hover:text-white duration-200 transition-colors">
+            <Button variant="outline" size="lg" className=" rounded-full uppercase hover:bg-gold hover:text-white duration-200 transition-colors">
               <Link
-                href="/signin"
+                href="/login"
                 className="group uppercase inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm font-medium focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
-                Sign Up
+                Login
               </Link>
             </Button>
           )}
@@ -210,7 +210,7 @@ function MenuIcon(props) {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="#fff"
+      fill="#000"
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
