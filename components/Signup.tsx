@@ -10,6 +10,7 @@ import { Input } from "../@/components/ui/input"
 import { Label } from "../@/components/ui/label"
 import Header from './Header';
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../@/components/ui/tabs"
 
 
 type Props = {
@@ -98,7 +99,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                             Forgot your password?
                                         </Link> */}
                                     </div>
-                                    <Input id="password" type="password" required className='rounded-full'/>
+                                    <Input id="password" type="password" required className='rounded-full' />
                                 </div>
                                 <div className="grid gap-2">
                                     <div className="flex items-center">
@@ -110,7 +111,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                             Forgot your password?
                                         </Link> */}
                                     </div>
-                                    <Input id="confirm-password" type="password" required className='rounded-full'/>
+                                    <Input id="confirm-password" type="password" required className='rounded-full' />
                                 </div>
                                 <Button type="submit" className="w-full rounded-full bg-blue-500 text-white hover:bg-transparent hover:border hover:border-blue-500 hover:text-white transition-colors duration-200">
                                     Sign Up
@@ -136,6 +137,14 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                     </div>
                 </div>
 
+                <Tabs defaultValue="account" className="w-[400px]">
+                    <TabsList>
+                        <TabsTrigger value="account">Account</TabsTrigger>
+                        <TabsTrigger value="password">Password</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="account">Make changes to your account here.</TabsContent>
+                    <TabsContent value="password">Change your password here.</TabsContent>
+                </Tabs>
 
                 {/* <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 mb-4" onClick={() => signIn('google')}>Sign in with Google</button> */}
                 {/* <button className="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800" onClick={() => signIn('facebook')}>Sign in with Facebook</button> */}
