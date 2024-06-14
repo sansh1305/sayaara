@@ -30,9 +30,6 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
         dealer: 'no',
     });
 
-    console.log('session:', session);
-    console.log('formData:', formData)
-
     const [error, setError] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [providerToSignUp, setProviderToSignUp] = useState<string | null>(null);
@@ -49,17 +46,35 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
             return;
         }
 
-        // Mock function to handle user registration, replace with actual API call
+        // API call to handle user registration
         const registerUser = async (userData: any) => {
-            // Add your API call logic here
-            console.log('User registered:', userData);
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to register user');
+            }
+
+            return response.json();
         };
 
         try {
-            await registerUser(formData);
+            await registerUser({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+                dealer: formData.dealer
+            });
             setError('');
             console.log('User registered successfully');
+            router.push('/'); // Redirect to the home page or any other page after successful registration
         } catch (error) {
+            setError('Error registering user. Please try again.');
             console.error('Error registering user:', error);
         }
     };
@@ -90,15 +105,15 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
 
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-start text-white h-full ">
-                <div className="w-full ">
+            <div className="flex flex-col items-center justify-start text-white h-full">
+                <div className="w-full">
                     <Header />
                     <div className="flex items-center justify-center py-12">
                         <div className="mx-auto grid w-[350px] gap-6">
                             <div className="grid gap-2 text-center">
                                 <h1 className="text-3xl font-bold">Sign Up</h1>
                                 <p className="text-balance text-muted-foreground">
-                                    Enter your email below to create an account to your account
+                                    Enter your email below to create an account
                                 </p>
                             </div>
                             {error && <p className="text-red-500 text-center">{error}</p>}
@@ -110,7 +125,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                         type="text"
                                         placeholder="John Doe"
                                         required
-                                        className='rounded-full placeholder:text-white/40'
+                                        className="rounded-full placeholder:text-white/40"
                                         value={formData.name}
                                         onChange={handleChange}
                                     />
@@ -122,7 +137,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                         type="email"
                                         placeholder="m@example.com"
                                         required
-                                        className='rounded-full placeholder:text-white/40'
+                                        className="rounded-full placeholder:text-white/40"
                                         value={formData.email}
                                         onChange={handleChange}
                                     />
@@ -135,7 +150,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                         id="password"
                                         type="password"
                                         required
-                                        className='rounded-full'
+                                        className="rounded-full"
                                         value={formData.password}
                                         onChange={handleChange}
                                     />
@@ -148,7 +163,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                         id="confirmPassword"
                                         type="password"
                                         required
-                                        className='rounded-full'
+                                        className="rounded-full"
                                         value={formData.confirmPassword}
                                         onChange={handleChange}
                                     />

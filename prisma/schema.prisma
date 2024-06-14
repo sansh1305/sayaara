@@ -126,6 +126,7 @@
     id                String       @default(cuid()) @id
     name              String?
     email             String       @unique
+    password          String       
     phone             String?
     profileImage      String?
     createdAt         DateTime     @default(now()) @map(name: "created_at")
@@ -138,7 +139,7 @@
     sessions          Session[]
 
     @@map(name: "users")
-    }
+}
 
     model DealerInfo {
     id                String      @default(cuid()) @id
