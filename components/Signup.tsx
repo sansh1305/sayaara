@@ -5,14 +5,16 @@ import { CarProps } from '../types';
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "../@/components/ui/button";
-import { Input } from "../@/components/ui/input";
-import { Label } from "../@/components/ui/label";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 import Header from './Header';
-import AlertModal from './AlertModal'; 
+import AlertModal from './AlertModal';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useRouter } from 'next/router';
+
+import session from '../pages/api/auth/register';
 
 type Props = {
     cars: CarProps[];
@@ -105,7 +107,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
 
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-start text-white h-full">
+            <div className="flex flex-col items-center justify-start text-white h-screen">
                 <div className="w-full">
                     <Header />
                     <div className="flex items-center justify-center py-12">
@@ -113,12 +115,12 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                             <div className="grid gap-2 text-center">
                                 <h1 className="text-3xl font-bold">Sign Up</h1>
                                 <p className="text-balance text-muted-foreground">
-                                    Enter your email below to create an account
+                                    Signup to your account using below options
                                 </p>
                             </div>
                             {error && <p className="text-red-500 text-center">{error}</p>}
                             <form onSubmit={handleSubmit} className="grid gap-4">
-                                <div className="grid gap-2">
+                                {/* <div className="grid gap-2">
                                     <Label htmlFor="name">Name</Label>
                                     <Input
                                         id="name"
@@ -167,7 +169,7 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                                         value={formData.confirmPassword}
                                         onChange={handleChange}
                                     />
-                                </div>
+                                </div> */}
 
                                 <div className="grid gap-2">
                                     <div className="flex items-center">
@@ -208,10 +210,10 @@ const CarsPage: React.FC<Props> = ({ cars }) => {
                     </div>
                 </div>
             </div>
-            <AlertModal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-                onConfirm={handleModalConfirm} 
+            <AlertModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onConfirm={handleModalConfirm}
             />
         </Layout>
     );

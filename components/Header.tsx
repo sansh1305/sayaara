@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { Sheet, SheetTrigger, SheetContent } from "../@/components/ui/sheet";
-import { Button } from "../@/components/ui/button";
+import { Sheet, SheetTrigger, SheetContent } from "./ui/sheet";
+import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from 'next/image';
 
@@ -15,14 +15,14 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../@/components/ui/dropdown-menu"
+} from "./ui/dropdown-menu"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../@/components/ui/tooltip"
+} from "./ui/tooltip"
 
 type Checked = DropdownMenuCheckboxItemProps["checked"]
 
