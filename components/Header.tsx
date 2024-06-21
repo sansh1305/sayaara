@@ -50,9 +50,9 @@ export default function Header() {
               {/* <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Home
               </Link> */}
-              <Link href="/dealer-login" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
+              {/* <Link href="/dealer-login" className="flex w-full items-center py-2 text-lg font-semibold rounded-xl" prefetch={false}>
                 Dealer Login
-              </Link>
+              </Link> */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="default" className='text-black uppercase flex gap-2 text-left text-lg font-semibold p-0'>
@@ -128,13 +128,13 @@ export default function Header() {
           >
             Home
           </Link> */}
-          <Link
+          {/* <Link
             href="/login"
             className="group inline-flex h-9 w-max items-center justify-center rounded-full px-4 py-2 text-sm  font-medium transition-colors hover:text-lightGray focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
             prefetch={false}
           >
             Dealer Login
-          </Link>
+          </Link> */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="default" className=' uppercase flex gap-2 hover:text-lightGray'>
@@ -158,7 +158,7 @@ export default function Header() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Link href="/profile" className="group inline-flex h-9 w-max items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors " prefetch={false}>
+                    <Link href={"/profile/"} className="group inline-flex h-9 w-max items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors " prefetch={false}>
                       <div className='rounded-full border border-black/50'>
                         {session.user?.image && (
                           <Image
