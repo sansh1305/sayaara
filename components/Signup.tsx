@@ -259,7 +259,7 @@ const FormSchema = z
     });
 
 const SignUpForm: React.FC<Props> = ({ cars }) => {
-    // const SignUpForm = () => {
+
     const router = useRouter();
 
     const form = useForm<z.infer<typeof FormSchema>>({
